@@ -20,7 +20,7 @@ export default function ProductModal({ product }) {
               {product.category}
             </span>
             <span className="text-muted-foreground">
-              {/* ⭐ {product.rating.rate} / 5 */}
+              ⭐ {product.rating.rate} / 5
             </span>
           </div>
           <div className="text-2xl font-bold">${product.price}</div>

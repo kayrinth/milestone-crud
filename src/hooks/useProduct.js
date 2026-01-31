@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { axios } from "@/api/axios";
+import { getProducts } from "@/api/products.api";
 
 export const useProducts = () => {
   const [products, setProducts] = useState([]);
@@ -8,11 +8,10 @@ export const useProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("/products");
-        const apiProducts = res.data;
+        const res = await getProducts();
 
         // 1. merge EDIT
-        const merged = apiProducts.map((product) => {
+        const merged = res.map((product) => {
           const edited = sessionStorage.getItem(`edit-product-${product.id}`);
           return edited ? { ...product, ...JSON.parse(edited) } : product;
         });

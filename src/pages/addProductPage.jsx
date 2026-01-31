@@ -12,10 +12,12 @@ import {
 } from "@/components/atoms/card";
 import { SelectCategories } from "../components/molecules/selectCategories";
 import { createProduct } from "@/api/products.api";
+import { CircleArrowLeft } from "lucide-react";
 
 export default function AddProductPage() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
+    rate: "",
     title: "",
     price: "",
     description: "",
@@ -44,6 +46,7 @@ export default function AddProductPage() {
 
     try {
       const payload = {
+        rating: { rate: 4.5, count: 100 },
         title: form.title,
         price: Number(form.price),
         description: form.description,
@@ -67,16 +70,25 @@ export default function AddProductPage() {
     }
   };
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 from-slate-50 to-slate-100 p-4 sm:p-6 lg:p-8">
       <div className="mx-auto max-w-5xl space-y-6">
-        <div className="space-y-2">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900">
-            Add Product
-          </h1>
-          <p className="text-sm text-slate-500">
-            Fill in the details below to add a new product to your catalog.
-          </p>
+        <div className="space-y-2 flex items-center gap-4 mb-4">
+          <button onClick={handleBack} variant="link" className="p-0">
+            <CircleArrowLeft size={30} />
+          </button>
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight text-slate-900">
+              Add Product
+            </h1>
+            <p className="text-sm text-slate-500">
+              Fill in the details below to add a new product to your catalog.
+            </p>
+          </div>
         </div>
         <Card className="border-slate-200 shadow-lg">
           <CardHeader>

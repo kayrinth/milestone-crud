@@ -12,6 +12,7 @@ import {
 } from "@/components/atoms/card";
 import { SelectCategories } from "../components/molecules/selectCategories";
 import { getProductById, updateProduct } from "@/api/products.api";
+import { CircleArrowLeft } from "lucide-react";
 
 export default function EditProductPage() {
   const { id } = useParams();
@@ -101,6 +102,10 @@ export default function EditProductPage() {
     }
   };
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   if (loading) {
     return <div className="p-6">Loading...</div>;
   }
@@ -112,13 +117,18 @@ export default function EditProductPage() {
   return (
     <div className="min-h-screen bg-gray-50 from-slate-50 to-slate-100 p-4 sm:p-6 lg:p-8">
       <div className="mx-auto max-w-5xl space-y-6">
-        <div className="space-y-2">
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900">
-            Edit Product
-          </h1>
-          <p className="text-sm text-slate-500">
-            Update your product information
-          </p>
+        <div className="space-y-2 flex items-center gap-4 mb-4">
+          <button onClick={handleBack} variant="link" className="p-0">
+            <CircleArrowLeft size={30} />
+          </button>
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight text-slate-900">
+              Edit Product
+            </h1>
+            <p className="text-sm text-slate-500">
+              Update your product information below.
+            </p>
+          </div>
         </div>
         <Card className="border-slate-200 shadow-lg">
           <CardHeader>
