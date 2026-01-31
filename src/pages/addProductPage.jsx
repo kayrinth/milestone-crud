@@ -112,8 +112,19 @@ export default function AddProductPage() {
                       />
                     ) : (
                       <div className="flex h-full flex-col items-center justify-center text-slate-400">
-                        <p className="text-sm font-medium">Drag & drop image</p>
-                        <p className="text-xs">or click upload</p>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="mb-2 h-12 w-12"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <p className="text-sm font-medium">Upload Image</p>
                       </div>
                     )}
                   </div>
@@ -127,8 +138,8 @@ export default function AddProductPage() {
                     />
                     <Button
                       type="button"
-                      variant="outline"
-                      className="w-full border-2 hover:bg-blue-50 hover:border-blue-500 hover:text-blue-600 transition-all"
+                      // variant="outline"
+                      className="w-full"
                     >
                       Upload Image
                     </Button>
