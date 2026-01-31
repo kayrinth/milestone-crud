@@ -1,4 +1,4 @@
-import ProductCard from "@/components/molecules/ProductCard";
+import ProductCard from "@/components/molecules/productCard";
 import ProductModal from "../molecules/productModal";
 import { useProducts } from "@/hooks/useProduct";
 import {
