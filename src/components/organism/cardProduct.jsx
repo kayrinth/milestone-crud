@@ -41,6 +41,8 @@ export default function Products({ category, search }) {
     try {
       setIsDeleting(true);
       sessionStorage.removeItem(`product-${id}`);
+      sessionStorage.removeItem(`edit-product-${id}`);
+      sessionStorage.removeItem("add-product");
       removeProduct(id);
       setOpen(false);
     } catch (error) {
